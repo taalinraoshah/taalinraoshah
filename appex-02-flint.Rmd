@@ -2,7 +2,7 @@
 title: "AE 02"
 subtitle: "Flint Water Crisis"
 date: "Due: August 21, 11:59PM"
-author: "YOUR NAME GOES HERE"
+author: "Taalin RaoShah"
 output: 
   html_document: 
     toc: TRUE
@@ -45,7 +45,7 @@ Let's preview the data with the `glimpse()` function:
 glimpse(flint)
 ```
 
-There are ______ samples in the data set. 
+There are 813 samples in the data set. 
 
 ## Analysis
 
@@ -58,21 +58,25 @@ flint %>%
   count(id)
 ```
 
-Fill in the code to see how many samples samples were taken from each zip code. 
+Fill in the code to see how many samples were taken from each zip code. 
 Uncomment the lines (i.e. remove the `#` before running the code)
 
 ```{r count-by-zip, echo = TRUE}
-# flint %>% 
- # count(______)
+flint %>% 
+  count(zip)
 ```
 
 Which ZIP code had the most samples drawn?
+
+ZIP code 48503 had the most samples drawn.
 
 ### Part 2
 
 Next, let's look at the mean and median lead contaminant values for each zip 
 code and draw combination. We have eight zip codes and samples taken at three 
 times. How many combinations do we have?
+
+24 combinations.
 
 ```{r mean-ppb-by-zip-draw, echo = TRUE}
 flint %>% 
@@ -88,15 +92,18 @@ flint %>%
 
 How many rows are in each of two above data frames?
 
+24 rows in each data frame.
 ### Part 3
 
 Modify the code below to compute the mean and median lead contaminant values for 
 zip code 48503 at the first draw. What should you put in for `draw == "_____"`?
 Don’t forget to uncomment the second line of code.
 
+I put in "first"
+
 ```{r, echo = TRUE}
 flint %>% 
-  # filter(zip == 48503, draw == "_____") %>% 
+  filter(zip == 48503, draw == "first") %>% 
   summarise(mean_pb = mean(lead),
             median_pb = median(lead))
 ```
